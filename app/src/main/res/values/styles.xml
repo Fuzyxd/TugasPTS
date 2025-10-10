@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base application theme. -->
+    <style name="Theme.TugasPTS" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">#272727</item>
+        <item name="colorPrimaryDark">#1A1A1A</item>
+        <item name="colorAccent">#EBF2F0</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">#1A1A1A</item>
+        <item name="android:navigationBarColor">#1A1A1A</item>
+    </style>
+
+    <style name="CoolTimePickerTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">#EBF2F0</item>
+        <item name="android:textColorPrimary">#EBF2F0</item>
+        <item name="android:background">#1A000000</item>
+    </style>
+</resources>

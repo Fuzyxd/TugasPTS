@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AlarmKu</string>
+    <string name="title_alarm">Alarm</string>
+    <string name="no_alarm">Tidak ada alarm yg ditambahkan</string>
+    <string name="tab_alarm">Alarm</string>
+    <string name="tab_world">Jam Dunia</string>
+    <string name="tab_timer">Timer</string>
+    <string name="tab_stopwatch">Stopwatch</string>
+    <string name="tab_setting">Setting</string>
+    <string name="AlarmActivity">Alarm</string>
+    <string name="google_client_id">your_google_client_id_here</string>
+    <string name="facebook_app_id">your_facebook_app_id_here</string>
+    <string name="facebook_client_token">your_facebook_client_token_here</string>
+    <string name="default_web_client_id">Your_Web_Client_ID_From_Google_Cloud_Console</string>
+</resources>

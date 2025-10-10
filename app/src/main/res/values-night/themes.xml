@@ -1,0 +1,17 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.AlarmKu" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="colorPrimary">@color/primary_blue</item>
+        <item name="colorPrimaryVariant">@color/light_blue</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="android:windowBackground">@color/light_bg</item>
+        <item name="android:statusBarColor">@color/primary_blue</item>
+        <item name="android:navigationBarColor">@color/primary_blue</item>
+    </style>
+
+    <style name="BottomNavigationStyle" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="itemIconTint">@drawable/bottom_nav_color</item>
+        <item name="itemTextColor">@drawable/bottom_nav_color</item>
+        <item name="itemBackground">@color/white</item>
+    </style>
+</resources>

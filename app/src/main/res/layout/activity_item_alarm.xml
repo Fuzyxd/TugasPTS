@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:layout_marginHorizontal="8dp"
+    android:layout_marginVertical="6dp"
+    app:cardCornerRadius="16dp"
+    app:cardBackgroundColor="#272727"
+    app:cardElevation="4dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <!-- Judul alarm (Paling atas) -->
+        <TextView
+            android:id="@+id/tv_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Matematika"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:maxLines="1"
+            android:ellipsize="end"/>
+
+        <!-- Waktu (Tengah) -->
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00.00"
+            android:textColor="#E0EDEB"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:layout_below="@id/tv_label"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="4dp"/>
+
+        <!-- Hari (Paling bawah) -->
+        <TextView
+            android:id="@+id/tv_days"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="senin,kamis,sabtu"
+            android:textColor="#99FFFFFF"
+            android:textSize="14sp"
+            android:layout_below="@id/tv_time"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="2dp"
+            android:maxLines="1"
+            android:ellipsize="end"/>
+
+        <!-- Switch (Samping kanan, di tengah vertikal) -->
+        <ImageButton
+            android:id="@+id/btn_switch"
+            android:layout_width="54dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="@android:color/transparent"
+            android:src="@drawable/switch_off"
+            android:layout_marginEnd="8dp"/>
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

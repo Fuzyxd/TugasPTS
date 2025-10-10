@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EA000000"
+    tools:context=".MainActivity3">
+
+    <!-- HEADER -->
+    <View
+        android:id="@+id/header_bg"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:background="@drawable/top_nav_background"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Jam Dunia"
+        android:textColor="#EBF2F0"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="34dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_profile"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginTop="35dp"
+        android:src="@drawable/profile_icon"
+        app:tint="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- JAM UTAMA INDONESIA -->
+    <TextView
+        android:id="@+id/tv_main_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="00.00"
+        android:textColor="#E0EDEB"
+        android:textSize="96sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/header_bg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:id="@+id/tv_main_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Indonesia (WIB)"
+        android:textColor="#809EA3"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/tv_main_time"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="0dp" />
+
+    <TextView
+        android:id="@+id/tv_main_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Selasa, 2 Okt"
+        android:textColor="#809EA3"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/tv_main_location"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="4dp" />
+
+    <!-- LIST JAM DUNIA -->
+    <LinearLayout
+        android:id="@+id/world_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="14dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_main_date">
+
+        <!-- Amerika -->
+        <LinearLayout
+            android:layout_width="307dp"
+            android:layout_height="110dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginBottom="18dp"
+            android:background="@drawable/rounded_dark">
+
+            <TextView
+                android:id="@+id/tv_amerika_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00.00"
+                android:textColor="#E0EDEB"
+                android:textSize="40sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_amerika_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Amerika Serikat (EDT)"
+                android:textColor="#809EA3"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginTop="4dp" />
+
+            <TextView
+                android:id="@+id/tv_amerika_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Selasa, 2 Okt"
+                android:textColor="#809EA3"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- Inggris -->
+        <LinearLayout
+            android:layout_width="307dp"
+            android:layout_height="110dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginBottom="18dp"
+            android:background="@drawable/rounded_dark">
+
+            <TextView
+                android:id="@+id/tv_inggris_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00.00"
+                android:textColor="#E0EDEB"
+                android:textSize="40sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_inggris_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Inggris (BST)"
+                android:textColor="#809EA3"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginTop="4dp" />
+
+            <TextView
+                android:id="@+id/tv_inggris_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Selasa, 2 Okt"
+                android:textColor="#809EA3"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- Jepang -->
+        <LinearLayout
+            android:layout_width="307dp"
+            android:layout_height="110dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@drawable/rounded_dark">
+
+            <TextView
+                android:id="@+id/tv_jepang_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00.00"
+                android:textColor="#E0EDEB"
+                android:textSize="40sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_jepang_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jepang (JST)"
+                android:textColor="#809EA3"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginTop="4dp" />
+
+            <TextView
+                android:id="@+id/tv_jepang_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Selasa, 2 Okt"
+                android:textColor="#809EA3"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- NAVIGATION BAR BACKGROUND -->
+    <View
+        android:id="@+id/nav_bg"
+        android:layout_width="0dp"
+        android:layout_height="90dp"
+        android:background="@drawable/bottom_nav_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- NAVIGATION BAR -->
+    <LinearLayout
+        android:id="@+id/bottom_nav"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:weightSum="5">
+
+        <!-- Alarm -->
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:foregroundGravity="center">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+                <ImageView
+                    android:id="@+id/nav_alarm"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/alarm"
+                    app:tint="#FFFFFF" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Alarm"
+                    android:textColor="#80999E"
+                    android:textStyle="bold"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <!-- Jam Dunia (AKTIF) -->
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:foregroundGravity="center">
+            <View
+                android:layout_width="73dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center_horizontal|bottom"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/rounded_gray" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+                <ImageView
+                    android:id="@+id/nav_world"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/world"
+                    app:tint="#FFFFFF" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Jam Dunia"
+                    android:textColor="#EBF2F0"
+                    android:textStyle="bold"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <!-- Timer -->
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:foregroundGravity="center">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+                <ImageView
+                    android:id="@+id/nav_timer"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/timer"
+                    app:tint="#FFFFFF" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Timer"
+                    android:textColor="#80999E"
+                    android:textStyle="bold"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <!-- Stopwatch -->
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:foregroundGravity="center">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+                <ImageView
+                    android:id="@+id/nav_stopwatch"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/stopwatch"
+                    app:tint="#FFFFFF" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Stopwatch"
+                    android:textColor="#80999E"
+                    android:textStyle="bold"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <!-- Setting -->
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:foregroundGravity="center">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+                <ImageView
+                    android:id="@+id/nav_setting"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/setting"
+                    app:tint="#FFFFFF" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Setting"
+                    android:textColor="#80999E"
+                    android:textStyle="bold"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

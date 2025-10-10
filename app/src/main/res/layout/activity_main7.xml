@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#282828">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- MAIN CARD -->
+            <LinearLayout
+                android:id="@+id/main_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/alarm_card_bg"
+                android:paddingTop="15dp"
+                android:paddingBottom="46dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="29dp"
+                android:layout_marginHorizontal="22dp">
+
+                <!-- HEADER SECTION -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginHorizontal="13dp"
+                    android:layout_marginBottom="30dp">
+
+                    <!-- CLOSE BUTTON -->
+                    <ImageButton
+                        android:id="@+id/btn_close"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_marginEnd="23dp"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/no" />
+
+                    <!-- HEADER BACKGROUND -->
+                    <LinearLayout
+                        android:id="@+id/header_bg"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:paddingVertical="3dp"
+                        android:background="@drawable/header_alarm_bg"
+                        android:layout_marginEnd="23dp">
+
+                        <TextView
+                            android:id="@+id/tv_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tambah Alarm"
+                            android:textColor="#FFFFFF"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- CONFIRM BUTTON -->
+                    <ImageButton
+                        android:id="@+id/btn_confirm"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/yes" />
+                </LinearLayout>
+
+                <!-- TIME PICKER AREA -->
+                <LinearLayout
+                    android:id="@+id/time_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:background="@android:color/black"
+                    android:paddingVertical="74dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginBottom="26dp">
+
+                    <TextView
+                        android:id="@+id/tv_hour"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="00"
+                        android:textColor="#E0EDEB"
+                        android:textSize="32sp"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="55dp" />
+
+                    <TextView
+                        android:id="@+id/tv_minute"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="00"
+                        android:textColor="#E0EDEB"
+                        android:textSize="32sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- NAMA SECTION -->
+                <TextView
+                    android:id="@+id/tv_nama_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nama"
+                    android:textColor="#FFFFFF"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginBottom="8dp" />
+
+                <!-- EDIT TEXT UNTUK INPUT NAMA -->
+                <EditText
+                    android:id="@+id/et_nama"
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:background="#D9D9D9"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:text="Alarm"
+                    android:layout_marginHorizontal="14dp"
+                    android:layout_marginBottom="32dp" />
+
+                <!-- HARI SECTION -->
+                <TextView
+                    android:id="@+id/tv_days_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hari Dipilih :"
+                    android:textColor="#FFFFFF"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="13dp"
+                    android:layout_marginBottom="12dp" />
+
+                <!-- Senin -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginHorizontal="13dp"
+                    android:layout_marginBottom="10dp">
+
+                    <TextView
+                        android:id="@+id/tv_senin"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Senin"
+                        android:textColor="#FFFFFF"
+                        android:textSize="24sp" />
+
+                    <ImageButton
+                        android:id="@+id/switch_senin"
+                        android:layout_width="54dp"
+                        android:layout_height="30dp"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/switch_off" />
+                </LinearLayout>
+
+                <!-- Selasa -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginHorizontal="13dp"
+                    android:layout_marginBottom="10dp">
+
+                    <TextView
+                        android:id="@+id/tv_selasa"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Selasa"
+                        android:textColor="#FFFFFF"
+                        android:textSize="24sp" />
+
+                    <ImageButton
+                        android:id="@+id/switch_selasa"
+                        android:layout_width="54dp"
+                        android:layout_height="30dp"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/switch_off" />
+                </LinearLayout>
+
+                <!-- Rabu -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginHorizontal="13dp"
+                    android:layout_marginBottom="10dp">
+
+                    <TextView
+                        android:id="@+id/tv_rabu"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Rabu"
+                        android:textColor="#FFFFFF"
+                        android:textSize="24sp" />
+
+                    <ImageButton
+                        android:id="@+id/switch_rabu"
+                        android:layout_width="54dp"
+                        android:layout_height="30dp"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/switch_off" />
+                </LinearLayout>
+
+                <!-- Kamis -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginHorizontal="13dp"
+                    android:layout_marginBottom="10dp">
+
+                    <TextView
+                        android:id="@+id/tv_kamis"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Kamis"
+                        android:textColor="#FFFFFF"
+                        android:textSize="24sp" />
+
+                    <ImageButton
+                        android:id="@+id/switch_kamis"
+                        android:layout_width="54dp"
+                        android:layout_height="30dp"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/switch_off" />
+                </LinearLayout>
+
+                <!-- Jum'at -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginHorizontal="13dp"
+                    android:layout_marginBottom="10dp">
+
+                    <TextView
+                        android:id="@+id/tv_jumat"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Jum'at"
+                        android:textColor="#FFFFFF"
+                        android:textSize="24sp" />
+
+                    <ImageButton
+                        android:id="@+id/switch_jumat"
+                        android:layout_width="54dp"
+                        android:layout_height="30dp"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/switch_off" />
+                </LinearLayout>
+
+                <!-- Sabtu -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginHorizontal="13dp"
+                    android:layout_marginBottom="10dp">
+
+                    <TextView
+                        android:id="@+id/tv_sabtu"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Sabtu"
+                        android:textColor="#FFFFFF"
+                        android:textSize="24sp" />
+
+                    <ImageButton
+                        android:id="@+id/switch_sabtu"
+                        android:layout_width="54dp"
+                        android:layout_height="30dp"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/switch_off" />
+                </LinearLayout>
+
+                <!-- Setiap Hari -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginHorizontal="13dp"
+                    android:layout_marginBottom="46dp">
+
+                    <TextView
+                        android:id="@+id/tv_setiap_hari"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Setiap Hari"
+                        android:textColor="#FFFFFF"
+                        android:textSize="24sp" />
+
+                    <ImageButton
+                        android:id="@+id/switch_setiap_hari"
+                        android:layout_width="54dp"
+                        android:layout_height="30dp"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/switch_off" />
+                </LinearLayout>
+
+                <!-- DELETE SECTION -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginHorizontal="16dp">
+
+                    <TextView
+                        android:id="@+id/tv_delete"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Hapus"
+                        android:textColor="#FF3131"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <ImageView
+                        android:id="@+id/iv_delete"
+                        android:layout_width="25dp"
+                        android:layout_height="32dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/trash" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

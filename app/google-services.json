@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "815504552525",
+    "project_id": "jamku-9d62a",
+    "storage_bucket": "jamku-9d62a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:815504552525:android:4d8b3242be98f167122204",
+        "android_client_info": {
+          "package_name": "com.example.tugaspts"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "815504552525-l72kg4kim5p8u1pfu4n7d7i3gfnbo10t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrJnIiGOxEGGGnTxjQxU5HvY3zHhfVG5U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "815504552525-l72kg4kim5p8u1pfu4n7d7i3gfnbo10t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

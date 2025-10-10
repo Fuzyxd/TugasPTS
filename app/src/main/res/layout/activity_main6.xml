@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EA000000">
+
+    <!-- HEADER -->
+    <View
+        android:id="@+id/header_bg"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:background="@drawable/top_nav_background"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Setting"
+        android:textColor="#EBF2F0"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="34dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- SETTINGS CARD -->
+    <View
+        android:id="@+id/settings_card"
+        android:layout_width="338dp"
+        android:layout_height="269dp"
+        android:background="@drawable/settings_card_bg"
+        app:layout_constraintTop_toBottomOf="@id/header_bg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="50dp" />
+
+    <!-- SETTING ITEMS -->
+
+    <!-- Akun -->
+    <ImageView
+        android:id="@+id/icon_akun"
+        android:layout_width="29dp"
+        android:layout_height="29dp"
+        android:src="@drawable/profile_icon"
+        app:tint="#FFFFFF"
+        app:layout_constraintStart_toStartOf="@id/settings_card"
+        app:layout_constraintTop_toTopOf="@id/settings_card"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="28dp" />
+
+    <TextView
+        android:id="@+id/tv_akun"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Akun"
+        android:textColor="#EBF2F0"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/settings_card"
+        app:layout_constraintTop_toTopOf="@id/settings_card"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="23dp" />
+
+    <!-- Bahasa -->
+    <ImageView
+        android:id="@+id/icon_bahasa"
+        android:layout_width="29dp"
+        android:layout_height="29dp"
+        android:src="@drawable/world"
+        app:tint="#FFFFFF"
+        app:layout_constraintStart_toStartOf="@id/settings_card"
+        app:layout_constraintTop_toBottomOf="@id/icon_akun"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="13dp" />
+
+    <TextView
+        android:id="@+id/tv_bahasa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bahasa"
+        android:textColor="#EBF2F0"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/settings_card"
+        app:layout_constraintTop_toBottomOf="@id/tv_akun"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="13dp" />
+
+    <!-- Notifikasi -->
+    <ImageView
+        android:id="@+id/icon_notifikasi"
+        android:layout_width="29dp"
+        android:layout_height="29dp"
+        android:src="@drawable/notif"
+        app:tint="#FFFFFF"
+        app:layout_constraintStart_toStartOf="@id/settings_card"
+        app:layout_constraintTop_toBottomOf="@id/icon_bahasa"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="13dp" />
+
+    <TextView
+        android:id="@+id/tv_notifikasi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Notifikasi"
+        android:textColor="#EBF2F0"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/settings_card"
+        app:layout_constraintTop_toBottomOf="@id/tv_bahasa"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="13dp" />
+
+    <!-- Switch untuk Notifikasi -->
+    <ImageButton
+        android:id="@+id/switch_notifikasi"
+        android:layout_width="54dp"
+        android:layout_height="30dp"
+        android:src="@drawable/switch_on"
+        android:background="@android:color/transparent"
+        app:layout_constraintEnd_toEndOf="@id/settings_card"
+        app:layout_constraintTop_toTopOf="@id/settings_card"
+        android:layout_marginEnd="14dp"
+        android:layout_marginTop="115dp" />
+
+    <!-- Nada Dering -->
+    <ImageView
+        android:id="@+id/icon_nada"
+        android:layout_width="29dp"
+        android:layout_height="29dp"
+        android:src="@drawable/nada"
+        app:tint="#FFFFFF"
+        app:layout_constraintStart_toStartOf="@id/settings_card"
+        app:layout_constraintTop_toBottomOf="@id/icon_notifikasi"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="13dp" />
+
+    <TextView
+        android:id="@+id/tv_nada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nada Dering"
+        android:textColor="#EBF2F0"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/settings_card"
+        app:layout_constraintTop_toBottomOf="@id/tv_notifikasi"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="13dp" />
+
+    <!-- Nomor Versi -->
+    <ImageView
+        android:id="@+id/icon_version"
+        android:layout_width="29dp"
+        android:layout_height="29dp"
+        android:src="@drawable/bg"
+        app:tint="#FFFFFF"
+        app:layout_constraintStart_toStartOf="@id/settings_card"
+        app:layout_constraintTop_toBottomOf="@id/icon_nada"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="13dp" />
+
+    <TextView
+        android:id="@+id/tv_version"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nomor Versi"
+        android:textColor="#EBF2F0"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/settings_card"
+        app:layout_constraintTop_toBottomOf="@id/tv_nada"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="13dp" />
+
+    <TextView
+        android:id="@+id/tv_version_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="V 1.0"
+        android:textColor="#EBF2F0"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/settings_card"
+        app:layout_constraintTop_toBottomOf="@id/tv_version"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="1dp" />
+
+    <!-- NAVIGATION BAR BACKGROUND -->
+    <View
+        android:id="@+id/nav_bg"
+        android:layout_width="0dp"
+        android:layout_height="90dp"
+        android:background="@drawable/bottom_nav_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- BOTTOM NAVIGATION -->
+    <LinearLayout
+        android:id="@+id/bottom_nav"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="15dp"
+        android:weightSum="5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Alarm -->
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:foregroundGravity="center">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+                <ImageView
+                    android:id="@+id/nav_alarm"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/alarm"
+                    app:tint="#FFFFFF" />
+                <TextView
+                    android:id="@+id/tv_alarm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Alarm"
+                    android:textColor="#80999E"
+                    android:textStyle="bold"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <!-- Jam Dunia -->
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:foregroundGravity="center">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+                <ImageView
+                    android:id="@+id/nav_world"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/world"
+                    app:tint="#FFFFFF" />
+                <TextView
+                    android:id="@+id/tv_world"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Jam Dunia"
+                    android:textColor="#80999E"
+                    android:textStyle="bold"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <!-- Timer -->
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:foregroundGravity="center">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+                <ImageView
+                    android:id="@+id/nav_timer"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/timer"
+                    app:tint="#FFFFFF" />
+                <TextView
+                    android:id="@+id/tv_timer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Timer"
+                    android:textColor="#80999E"
+                    android:textStyle="bold"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <!-- Stopwatch -->
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:foregroundGravity="center">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+                <ImageView
+                    android:id="@+id/nav_stopwatch"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/stopwatch"
+                    app:tint="#FFFFFF" />
+                <TextView
+                    android:id="@+id/tv_stopwatch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Stopwatch"
+                    android:textColor="#80999E"
+                    android:textStyle="bold"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <!-- Setting (AKTIF) -->
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:foregroundGravity="center">
+
+            <!-- Bulatan abu di belakang -->
+            <View
+                android:layout_width="73dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center_horizontal|bottom"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/rounded_gray" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+                <ImageView
+                    android:id="@+id/nav_setting"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/setting"
+                    app:tint="#FFFFFF" />
+                <TextView
+                    android:id="@+id/tv_setting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Setting"
+                    android:textColor="#EBF2F0"
+                    android:textStyle="bold"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

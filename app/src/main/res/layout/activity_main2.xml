@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EA000000"
+    tools:context=".MainActivity2">
+
+    <!-- HEADER -->
+    <View
+        android:id="@+id/header_bg"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:background="@drawable/header_bg_rounded"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Alarm"
+        android:textColor="#EBF2F0"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="34dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_profile"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:src="@drawable/profile_icon"
+        app:tint="#FFFFFF"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="36dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- SCROLLVIEW UNTUK ALARM CONTAINER -->
+    <ScrollView
+        android:id="@+id/scroll_view_alarms"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:fadingEdgeLength="20dp"
+        android:scrollbars="none"
+        app:layout_constraintTop_toBottomOf="@id/header_bg"
+        app:layout_constraintBottom_toTopOf="@id/nav_bg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:paddingHorizontal="16dp">
+
+        <!-- ALARM CONTAINER -->
+        <LinearLayout
+            android:id="@+id/alarm_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center" />
+
+    </ScrollView>
+
+    <!-- TEKS TIDAK ADA ALARM - DIPINDAHKAN KE DALAM SCROLLVIEW -->
+    <TextView
+        android:id="@+id/tv_no_alarm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tidak ada alarm yg ditambahkan"
+        android:textColor="#809EA3"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/header_bg"
+        app:layout_constraintBottom_toTopOf="@id/nav_bg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp" />
+
+    <!-- FAB -->
+    <View
+        android:id="@+id/fab_bg"
+        android:layout_width="68dp"
+        android:layout_height="68dp"
+        android:layout_marginEnd="27dp"
+        android:layout_marginBottom="115dp"
+        android:background="@drawable/rounded_dark2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <ImageView
+        android:id="@+id/fab_add"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/plus"
+        app:tint="#FFFFFF"
+        app:layout_constraintStart_toStartOf="@id/fab_bg"
+        app:layout_constraintEnd_toEndOf="@id/fab_bg"
+        app:layout_constraintTop_toTopOf="@id/fab_bg"
+        app:layout_constraintBottom_toBottomOf="@id/fab_bg" />
+
+    <!-- NAV BACKGROUND -->
+    <View
+        android:id="@+id/nav_bg"
+        android:layout_width="0dp"
+        android:layout_height="90dp"
+        android:background="@drawable/nav_bg_rounded"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- BOTTOM NAV -->
+    <LinearLayout
+        android:id="@+id/bottom_nav"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:weightSum="5">
+
+        <!-- Alarm (ACTIVE) -->
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:foregroundGravity="center">
+            <!-- Bulatan abu aktif -->
+            <View
+                android:layout_width="73dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center_horizontal|bottom"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/rounded_gray" />
+            <!-- Icon + text -->
+            <LinearLayout
+                android:id="@+id/nav_alarm_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+                <ImageView
+                    android:id="@+id/nav_alarm"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/alarm"
+                    app:tint="#FFFFFF" />
+                <TextView
+                    android:id="@+id/tv_alarm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Alarm"
+                    android:textColor="#EBF2F0"
+                    android:textStyle="bold"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <!-- Jam Dunia -->
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:foregroundGravity="center">
+            <LinearLayout
+                android:id="@+id/nav_world_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+                <ImageView
+                    android:id="@+id/nav_world"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/world"
+                    app:tint="#FFFFFF" />
+                <TextView
+                    android:id="@+id/tv_world"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Jam Dunia"
+                    android:textColor="#80999E"
+                    android:textStyle="bold"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <!-- Timer -->
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:foregroundGravity="center">
+            <LinearLayout
+                android:id="@+id/nav_timer_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+                <ImageView
+                    android:id="@+id/nav_timer"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/timer"
+                    app:tint="#FFFFFF" />
+                <TextView
+                    android:id="@+id/tv_timer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Timer"
+                    android:textColor="#80999E"
+                    android:textStyle="bold"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <!-- Stopwatch -->
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:foregroundGravity="center">
+            <LinearLayout
+                android:id="@+id/nav_stopwatch_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+                <ImageView
+                    android:id="@+id/nav_stopwatch"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/stopwatch"
+                    app:tint="#FFFFFF" />
+                <TextView
+                    android:id="@+id/tv_stopwatch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Stopwatch"
+                    android:textColor="#80999E"
+                    android:textStyle="bold"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <!-- Setting -->
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:foregroundGravity="center">
+            <LinearLayout
+                android:id="@+id/nav_setting_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+                <ImageView
+                    android:id="@+id/nav_setting"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/setting"
+                    app:tint="#FFFFFF" />
+                <TextView
+                    android:id="@+id/tv_setting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Setting"
+                    android:textColor="#80999E"
+                    android:textStyle="bold"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
