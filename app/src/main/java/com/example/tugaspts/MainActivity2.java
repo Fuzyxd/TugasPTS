@@ -1,7 +1,11 @@
 package com.example.tugaspts;
 
+import android.Manifest;
+import android.app.AlarmManager;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -9,9 +13,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -27,6 +34,7 @@ public class MainActivity2 extends AppCompatActivity {
     private ImageView ivProfile;
     private View fab_bg;
     private List<Alarm> alarmsList = new ArrayList<>();
+    private static final int NOTIFICATION_PERMISSION_CODE = 1001;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +42,7 @@ public class MainActivity2 extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
 
         initViews();
+        checkAndRequestNotificationPermission();
         setupClickListeners();
         loadAlarms();
     }
@@ -49,6 +58,34 @@ public class MainActivity2 extends AppCompatActivity {
         tvNoAlarm = findViewById(R.id.tv_no_alarm);
         fabAdd = findViewById(R.id.fab_add);
         ivProfile = findViewById(R.id.iv_profile);
+    }
+
+    // Method untuk cek dan request permission notifikasi
+    private void checkAndRequestNotificationPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS)
+                    != PackageManager.PERMISSION_GRANTED) {
+
+                ActivityCompat.requestPermissions(
+                        this,
+                        new String[]{Manifest.permission.POST_NOTIFICATIONS},
+                        NOTIFICATION_PERMISSION_CODE
+                );
+            }
+        }
+    }
+
+    // Handle result permission request
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == NOTIFICATION_PERMISSION_CODE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Toast.makeText(this, "Notification permission granted", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Notification permission denied", Toast.LENGTH_LONG).show();
+            }
+        }
     }
 
     private void setupClickListeners() {
@@ -77,15 +114,11 @@ public class MainActivity2 extends AppCompatActivity {
             Intent intent = new Intent(MainActivity2.this, MainActivity8.class);
 
             // Pass user data ke profile activity
-            String username = prefs.getString("username", "");
+            String username = prefs.getString("username", "User");
             String userEmail = prefs.getString("user_email", "");
 
-            if (!username.isEmpty()) {
-                intent.putExtra("user_name", username);
-            }
-            if (!userEmail.isEmpty()) {
-                intent.putExtra("user_email", userEmail);
-            }
+            intent.putExtra("user_name", username);
+            intent.putExtra("user_email", userEmail);
 
             startActivity(intent);
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
@@ -94,7 +127,6 @@ public class MainActivity2 extends AppCompatActivity {
             Intent intent = new Intent(MainActivity2.this, MainActivity.class);
             startActivity(intent);
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-            finish();
         }
     }
 
@@ -171,6 +203,15 @@ public class MainActivity2 extends AppCompatActivity {
                 alarm.setLabel(jsonObject.getString("label"));
                 alarm.setDays(jsonObject.getString("days"));
                 alarm.setActive(jsonObject.getBoolean("active"));
+
+                // Load alarmId jika ada, jika tidak generate baru
+                if (jsonObject.has("alarmId")) {
+                    alarm.setAlarmId(jsonObject.getInt("alarmId"));
+                } else {
+                    // Generate ID yang unik
+                    alarm.setAlarmId((int) System.currentTimeMillis() + i);
+                }
+
                 alarms.add(alarm);
             }
         } catch (JSONException e) {
@@ -198,10 +239,34 @@ public class MainActivity2 extends AppCompatActivity {
 
         // Toggle switch
         btnSwitch.setOnClickListener(v -> {
-            alarm.setActive(!alarm.isActive());
-            btnSwitch.setImageResource(alarm.isActive() ?
-                    R.drawable.switch_on : R.drawable.switch_off);
-            updateAlarmInStorage(position, alarm.isActive());
+            // Cek permission untuk Android 13+
+            if (alarm.isActive()) {
+                // Mematikan alarm - tidak butuh permission
+                alarm.setActive(false);
+                btnSwitch.setImageResource(R.drawable.switch_off);
+                updateAlarmInStorage(position, false);
+            } else {
+                // Mengaktifkan alarm - butuh permission
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                    if (ContextCompat.checkSelfPermission(MainActivity2.this,
+                            Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED) {
+                        // Permission granted, aktifkan alarm
+                        alarm.setActive(true);
+                        btnSwitch.setImageResource(R.drawable.switch_on);
+                        updateAlarmInStorage(position, true);
+                    } else {
+                        // Permission not granted, minta permission
+                        Toast.makeText(MainActivity2.this,
+                                "Notification permission required for alarms", Toast.LENGTH_LONG).show();
+                        checkAndRequestNotificationPermission();
+                    }
+                } else {
+                    // Android < 13, langsung aktifkan
+                    alarm.setActive(true);
+                    btnSwitch.setImageResource(R.drawable.switch_on);
+                    updateAlarmInStorage(position, true);
+                }
+            }
         });
 
         // Klik item untuk edit
@@ -212,6 +277,7 @@ public class MainActivity2 extends AppCompatActivity {
             intent.putExtra("alarm_label", alarm.getLabel());
             intent.putExtra("alarm_days", alarm.getDays());
             intent.putExtra("alarm_active", alarm.isActive());
+            intent.putExtra("alarm_id", alarm.getAlarmId()); // Tambahkan ID alarm
             startActivityForResult(intent, 2);
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         });
@@ -229,16 +295,36 @@ public class MainActivity2 extends AppCompatActivity {
 
     private void updateAlarmInStorage(int position, boolean isActive) {
         if (position >= 0 && position < alarmsList.size()) {
-            alarmsList.get(position).setActive(isActive);
+            Alarm alarm = alarmsList.get(position);
+            alarm.setActive(isActive);
+
+            if (isActive) {
+                // Set alarm aktif
+                AlarmHelper.setAlarm(MainActivity2.this, alarm);
+                Toast.makeText(this, "Alarm set for " + alarm.getTime(), Toast.LENGTH_SHORT).show();
+            } else {
+                // Matikan alarm
+                AlarmHelper.cancelAlarm(MainActivity2.this, alarm.getAlarmId());
+                Toast.makeText(this, "Alarm cancelled", Toast.LENGTH_SHORT).show();
+            }
+
             saveAllAlarmsToStorage();
         }
     }
 
     private void deleteAlarm(int position) {
         if (position >= 0 && position < alarmsList.size()) {
+            Alarm alarm = alarmsList.get(position);
+
+            // Cancel alarm sebelum hapus
+            if (alarm.isActive()) {
+                AlarmHelper.cancelAlarm(MainActivity2.this, alarm.getAlarmId());
+            }
+
             alarmsList.remove(position);
             saveAllAlarmsToStorage();
             loadAlarms(); // Refresh list
+            Toast.makeText(this, "Alarm deleted", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -253,6 +339,7 @@ public class MainActivity2 extends AppCompatActivity {
                 alarmJson.put("label", alarm.getLabel());
                 alarmJson.put("days", alarm.getDays());
                 alarmJson.put("active", alarm.isActive());
+                alarmJson.put("alarmId", alarm.getAlarmId()); // Simpan alarmId
                 jsonArray.put(alarmJson);
             }
 
@@ -283,27 +370,5 @@ public class MainActivity2 extends AppCompatActivity {
         // Keluar dari aplikasi atau minimize
         super.onBackPressed();
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-    }
-
-    // Inner class Alarm
-    public static class Alarm {
-        private String time;
-        private String label;
-        private String days;
-        private boolean active;
-
-        public Alarm() {}
-
-        public String getTime() { return time; }
-        public void setTime(String time) { this.time = time; }
-
-        public String getLabel() { return label; }
-        public void setLabel(String label) { this.label = label; }
-
-        public String getDays() { return days; }
-        public void setDays(String days) { this.days = days; }
-
-        public boolean isActive() { return active; }
-        public void setActive(boolean active) { this.active = active; }
     }
 }

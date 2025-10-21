@@ -5,15 +5,19 @@ public class Alarm {
     private String label;
     private String days;
     private boolean active;
+    private int alarmId;
 
     // Constructor
-    public Alarm() {}
+    public Alarm() {
+        this.alarmId = (int) System.currentTimeMillis();
+    }
 
     public Alarm(String time, String label, String days, boolean active) {
         this.time = time;
         this.label = label;
         this.days = days;
         this.active = active;
+        this.alarmId = (int) System.currentTimeMillis();
     }
 
     // Getters and setters
@@ -28,4 +32,7 @@ public class Alarm {
 
     public boolean isActive() { return active; }
     public void setActive(boolean active) { this.active = active; }
+
+    public int getAlarmId() { return alarmId; }
+    public void setAlarmId(int alarmId) { this.alarmId = alarmId; }
 }

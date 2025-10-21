@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#FFFFFF"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -81,36 +82,66 @@
                         android:src="@drawable/yes" />
                 </LinearLayout>
 
-                <!-- TIME PICKER AREA -->
+                <!-- TIME PICKER AREA - UPDATED WITH NUMBERPICKER -->
                 <LinearLayout
                     android:id="@+id/time_container"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="210dp"
                     android:orientation="horizontal"
                     android:gravity="center"
                     android:background="@android:color/black"
-                    android:paddingVertical="74dp"
                     android:layout_marginHorizontal="16dp"
-                    android:layout_marginBottom="26dp">
+                    android:layout_marginBottom="26dp"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp">
 
-                    <TextView
-                        android:id="@+id/tv_hour"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="00"
-                        android:textColor="#E0EDEB"
-                        android:textSize="32sp"
-                        android:textStyle="bold"
-                        android:layout_marginEnd="55dp" />
+                    <!-- Hour Picker -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
 
-                    <TextView
-                        android:id="@+id/tv_minute"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="00"
-                        android:textColor="#E0EDEB"
-                        android:textSize="32sp"
-                        android:textStyle="bold" />
+                        <NumberPicker
+                            android:id="@+id/numberPicker_hour"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="jam"
+                            android:textColor="#99E0EDEB"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="8dp" />
+                    </LinearLayout>
+
+                    <!-- Minute Picker -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <NumberPicker
+                            android:id="@+id/numberPicker_minute"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="menit"
+                            android:textColor="#99E0EDEB"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="8dp" />
+                    </LinearLayout>
                 </LinearLayout>
 
                 <!-- NAMA SECTION -->
