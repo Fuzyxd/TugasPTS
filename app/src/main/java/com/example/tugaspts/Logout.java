@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity8 extends AppCompatActivity {
+public class Logout extends AppCompatActivity {
 
     private TextView tvUsername;
     private View btnLogoutBg;
@@ -15,7 +15,7 @@ public class MainActivity8 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main8);
+        setContentView(R.layout.logout);
 
         // Animasi masuk
         overridePendingTransition(R.anim.slide_in_up, R.anim.slide_out_down);
@@ -142,7 +142,7 @@ public class MainActivity8 extends AppCompatActivity {
         }
 
         // Redirect ke login page dengan clear task
-        Intent intent = new Intent(MainActivity8.this, MainActivity.class);
+        Intent intent = new Intent(Logout.this, Login.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);

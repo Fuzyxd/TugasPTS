@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.NumberPicker;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -160,7 +159,7 @@ public class MainActivity4 extends AppCompatActivity {
             navigateToActivity(MainActivity6.class);
         });
         ivProfile.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity4.this, MainActivity.class);
+            Intent intent = new Intent(MainActivity4.this, Login.class);
             startActivity(intent);
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             finish();

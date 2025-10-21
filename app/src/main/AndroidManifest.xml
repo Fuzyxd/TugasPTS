@@ -40,7 +40,7 @@
 
         <!-- Login Activity -->
         <activity
-            android:name=".MainActivity"
+            android:name=".Login"
             android:exported="false"
             android:theme="@style/Theme.TugasPTS" />
 
@@ -76,7 +76,7 @@
 
         <!-- Profile Activity -->
         <activity
-            android:name=".MainActivity8"
+            android:name=".Logout"
             android:exported="false"
             android:theme="@style/Theme.TugasPTS" />
 

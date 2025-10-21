@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -80,7 +79,7 @@ public class MainActivity5 extends AppCompatActivity {
             navigateToActivity(MainActivity6.class);
         });
         ivProfile.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity5.this, MainActivity.class);
+            Intent intent = new Intent(MainActivity5.this, Login.class);
             startActivity(intent);
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             finish();

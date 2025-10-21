@@ -91,7 +91,7 @@ public class MainActivity3 extends AppCompatActivity {
             navigateToActivity(MainActivity6.class);
         });
         ivProfile.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity3.this, MainActivity.class);
+            Intent intent = new Intent(MainActivity3.this, Login.class);
             startActivity(intent);
             finish();
         });

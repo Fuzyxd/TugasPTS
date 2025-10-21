@@ -132,7 +132,6 @@
             android:textColor="#EBF2F0"
             android:background="@android:color/transparent"
             android:layout_marginStart="10dp" />
-
     </LinearLayout>
 
 </LinearLayout>

@@ -1,7 +1,6 @@
 package com.example.tugaspts;
 
 import android.Manifest;
-import android.app.AlarmManager;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -110,8 +109,8 @@ public class MainActivity2 extends AppCompatActivity {
         boolean isLoggedIn = prefs.getBoolean("is_logged_in", false);
 
         if (isLoggedIn) {
-            // Jika sudah login, pergi ke profile page (MainActivity8)
-            Intent intent = new Intent(MainActivity2.this, MainActivity8.class);
+            // Jika sudah login, pergi ke profile page (Logout)
+            Intent intent = new Intent(MainActivity2.this, Logout.class);
 
             // Pass user data ke profile activity
             String username = prefs.getString("username", "User");
@@ -123,8 +122,8 @@ public class MainActivity2 extends AppCompatActivity {
             startActivity(intent);
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         } else {
-            // Jika belum login, pergi ke login page (MainActivity)
-            Intent intent = new Intent(MainActivity2.this, MainActivity.class);
+            // Jika belum login, pergi ke login page (Login)
+            Intent intent = new Intent(MainActivity2.this, Login.class);
             startActivity(intent);
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         }
@@ -149,7 +148,7 @@ public class MainActivity2 extends AppCompatActivity {
 
         findViewById(R.id.nav_setting_container).setOnClickListener(v -> {
             // Untuk bottom navigation, selalu cek status login
-            checkLoginStatusAndNavigate();
+            navigateToActivity(MainActivity6.class);
         });
     }
 

@@ -22,10 +22,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
-public class MainActivity extends AppCompatActivity {
+public class Login extends AppCompatActivity {
 
     private static final int RC_GOOGLE_SIGN_IN = 100;
-    private static final String TAG = "MainActivity";
+    private static final String TAG = "Login";
 
     private TextView tvLoginButton;
     private ImageButton btnGoogle;
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.login);
 
         initViews();
         setupFirebase();
@@ -266,7 +266,7 @@ public class MainActivity extends AppCompatActivity {
             // Simpan data user ke SharedPreferences
             saveUserData(userName, userEmail, userId);
 
-            Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+            Intent intent = new Intent(Login.this, MainActivity2.class);
             intent.putExtra("user_name", userName);
             intent.putExtra("user_email", userEmail);
             intent.putExtra("user_id", userId);

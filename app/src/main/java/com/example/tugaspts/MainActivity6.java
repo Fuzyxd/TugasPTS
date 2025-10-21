@@ -107,13 +107,13 @@ public class MainActivity6 extends AppCompatActivity {
         });
 
         iconAkun.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity6.this, MainActivity.class);
+            Intent intent = new Intent(MainActivity6.this, Login.class);
             startActivity(intent);
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             finish();
         });
         tvAkun.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity6.this, MainActivity.class);
+            Intent intent = new Intent(MainActivity6.this, Login.class);
             startActivity(intent);
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             finish();
