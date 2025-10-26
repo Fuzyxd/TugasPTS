@@ -92,6 +92,20 @@
         android:layout_marginStart="88dp"
         android:layout_marginTop="13dp" />
 
+    <!-- TEXT "Indonesia" BARU -->
+    <TextView
+        android:id="@+id/tv_bahasa_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Indonesia"
+        android:textColor="#EBF2F0"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="@id/settings_card"
+        app:layout_constraintTop_toTopOf="@id/tv_bahasa"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="9dp"/>
+
     <!-- Notifikasi -->
     <ImageView
         android:id="@+id/icon_notifikasi"

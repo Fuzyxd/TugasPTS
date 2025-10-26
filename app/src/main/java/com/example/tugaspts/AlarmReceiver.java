@@ -90,24 +90,31 @@ public class AlarmReceiver extends BroadcastReceiver {
             unregisterStopSoundReceiver();
             isPlaying = false;
         }, 30000);
+
+        boolean isSnoozed = intent.getBooleanExtra("is_snoozed", false);
+        if (isSnoozed) {
+            Log.d(TAG, "This is a snoozed alarm");
+            // Optional: Tampilkan label berbeda untuk snooze
+        }
     }
 
+    // Di AlarmReceiver.java - pastikan sudah ada ini:
     private void setupStopSoundReceiver() {
         stopSoundReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
-                if (STOP_SOUND_ACTION.equals(intent.getAction())) {
+                if ("STOP_ALARM_SOUND".equals(intent.getAction())) {
                     int receivedAlarmId = intent.getIntExtra("alarm_id", 0);
 
                     Log.d(TAG, "Stop sound received for alarm ID: " + receivedAlarmId + ", current: " + currentAlarmId);
 
                     // Jika alarm ID cocok atau 0 (stop semua), stop suara
                     if (receivedAlarmId == currentAlarmId || receivedAlarmId == 0) {
-                        Log.d(TAG, "Stopping alarm sound by dismiss button");
+                        Log.d(TAG, "Stopping alarm sound by snooze/dismiss button");
                         stopAlarmSound();
                         unregisterStopSoundReceiver();
 
-                        // Juga cancel handler
+                        // Juga cancel handler auto-stop
                         if (handler != null) {
                             handler.removeCallbacksAndMessages(null);
                         }
@@ -121,7 +128,7 @@ public class AlarmReceiver extends BroadcastReceiver {
 
         // Daftarkan receiver
         try {
-            IntentFilter filter = new IntentFilter(STOP_SOUND_ACTION);
+            IntentFilter filter = new IntentFilter("STOP_ALARM_SOUND");
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
                 context.registerReceiver(stopSoundReceiver, filter, Context.RECEIVER_EXPORTED);
             } else {

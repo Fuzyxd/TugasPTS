@@ -171,6 +171,7 @@
             android:layout_height="110dp"
             android:orientation="vertical"
             android:gravity="center"
+            android:layout_marginBottom="18dp"
             android:background="@drawable/rounded_dark">
 
             <TextView
@@ -200,7 +201,45 @@
                 android:textColor="#809EA3"
                 android:textSize="12sp" />
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="307dp"
+            android:layout_height="110dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginBottom="18dp"
+            android:background="@drawable/rounded_dark">
+
+            <TextView
+                android:id="@+id/tv_Arab_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00.00"
+                android:textColor="#E0EDEB"
+                android:textSize="40sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_Arab_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Arab (AST)"
+                android:textColor="#809EA3"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginTop="4dp" />
+
+            <TextView
+                android:id="@+id/tv_Arab_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Selasa, 2 Okt"
+                android:textColor="#809EA3"
+                android:textSize="12sp" />
+        </LinearLayout>
     </LinearLayout>
+
+
 
     <!-- NAVIGATION BAR BACKGROUND -->
     <View
